@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css" />
+</head>
+<body>
+    <h1>Home</h1>
+    <a>Hallo</a>
+    <!--/*@thymesVar id="info" type="gulas.family.family.REST_data.RegisterInfo"*/-->
+    <form th:action="@{/submitForm}" th:object="${info}" th:method="post">
+        <label for="username">Enter your Username</label>
+        <input type="text" id="username" th:field="*{username}">
+        <label for="password">Enter your Password</label>
+        <input type="password" id="password" min="1" max="64" th:field="*{password}">
+        <button type="submit">Submit</button>
+    </form>
+    <h1 th:text="${resultMessage}"></h1>
+</body>
+</html>

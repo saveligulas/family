@@ -1,10 +1,7 @@
 package gulas.family.family.home;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
+import gulas.family.family.token.CryptKey;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,4 +18,7 @@ public class User {
     private String fullName;
     private String username;
     private String password;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "crypt_key_id", referencedColumnName = "id")
+    private CryptKey cryptKey;
 }

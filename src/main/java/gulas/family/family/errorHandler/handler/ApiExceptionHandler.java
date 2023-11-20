@@ -1,6 +1,7 @@
 package gulas.family.family.errorHandler.handler;
 
 import gulas.family.family.errorHandler.exception.ApiException;
+import gulas.family.family.errorHandler.exception.UsernameException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,9 +24,9 @@ public class ApiExceptionHandler {
         return new ResponseEntity<>(exception,badRequest);
     }
 
-    @ExceptionHandler(value={InvalidTokenException.class})
-    public ResponseEntity<Object> handleInvalidTokenException(InvalidTokenException e) {
-        //TODO
+    @ExceptionHandler(value={UsernameException.class})
+    public ResponseEntity<Object> handleInvalidTokenException(UsernameException e) {
+
         return null;
     }
 }

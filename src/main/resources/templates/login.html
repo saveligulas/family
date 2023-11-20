@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <!--/*@thymesVar id="info" type="gulas.family.family.REST_data.LoginInfo"*/-->
+    <form th:action="@{/submitLogin}" th:object="${info}" th:method="post">
+        <label for="username">Enter your Username</label>
+        <input type="text" id="username" th:field="*{username}">
+        <label for="password">Enter your Password</label>
+        <input type="password" id="password" min="1" max="64" th:field="*{password}">
+        <button type="submit">Submit</button>
+    </form>
+    <h1 th:text="${resultMessage}"></h1>
+
+</body>
+</html>
